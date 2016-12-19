@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/marked.js"></script>
+    <style>
+        .questions{
+            color: red;
+        }
+        ul>li{
+            /*background-color: gray;*/
+            list-style: none;
+        }
+        ul>li>a{
+
+        }
+    </style>
+</head>
+<body>
+    <div class="contains">
+        <div class="param">
+            <h1>tinper.org   问题数:<span id="par1-qs" class="questions"></span></h1>
+            <div id="par1" class="param-content">
+
+            </div>
+        </div>
+        <div class="param">
+            <h1>tinper-neoui   问题数:<span id="par2-qs" class="questions"></span></h1>
+            <div id="par2" class="param-content">
+
+            </div>
+        </div>
+        <div class="param">
+            <h1>kero   问题数:<span id="par3-qs" class="questions"></span></h1>
+            <div id="par3" class="param-content">
+
+            </div>
+        </div>
+        <div class="param">
+            <h1>tinper-neoui-grid   问题数:<span id="par4-qs" class="questions"></span></h1>
+            <div id="par4" class="param-content">
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function(){
+        $.ajax({
+             url: "https://api.github.com/repos/iuap-design/tinper.org/issues?state=open",
+             success: function(data){
+                var data_ = data,
+                    str = "<ul>";
+                for (var i = 0; i < data_.length; i++) {
+                    str += "<li><a target='_blank' href="+data_[i].html_url+">"+(i+1)+"、"+data_[i].title+"</a>"+marked(data_[i].body)+"</li>";
+                }
+                str += "</ul>";
+                $('#par1').html(str);
+                $('#par1-qs').html(data_.length);
+             }
+        });
+        $.ajax({
+             url: "https://api.github.com/repos/iuap-design/tinper-neoui/issues?state=open",
+             success: function(data){
+                 var data_ = data,
+                     str = "<ul>";
+                 for (var i = 0; i < data_.length; i++) {
+                     str += "<li><a target='_blank' href="+data_[i].html_url+">"+(i+1)+"、"+data_[i].title+"</a>"+marked(data_[i].body)+"</li>";
+                 }
+                 str += "</ul>";
+                 $('#par2').html(str);
+                 $('#par2-qs').html(data_.length);
+             }
+        });
+        $.ajax({
+             url: "https://api.github.com/repos/iuap-design/kero/issues?state=open",
+             success: function(data){
+                 var data_ = data,
+                     str = "<ul>";
+                 for (var i = 0; i < data_.length; i++) {
+                     str += "<li><a target='_blank' href="+data_[i].html_url+">"+(i+1)+"、"+data_[i].title+"</a>"+marked(data_[i].body)+"</li>";
+                 }
+                 str += "</ul>";
+                 $('#par3').html(str);
+                 $('#par3-qs').html(data_.length);
+             }
+        });
+        $.ajax({
+             url: "https://api.github.com/repos/iuap-design/tinper-neoui-grid/issues?state=open",
+             success: function(data){
+                 var data_ = data,
+                     str = "<ul>";
+                 for (var i = 0; i < data_.length; i++) {
+                     str += "<li><a target='_blank' href="+data_[i].html_url+">"+(i+1)+"、"+data_[i].title+"</a>"+marked(data_[i].body)+"</li>";
+                 }
+                 str += "</ul>";
+                 $('#par4').html(str);
+                 $('#par4-qs').html(data_.length);
+             }
+        });
+    })
+</script>
+</html>
