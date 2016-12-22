@@ -16,7 +16,9 @@
             list-style: none;
         }
         ul>li>a{
-
+            display: inline-block;
+            color: blue;
+            margin: 5px 0;
         }
     </style>
 </head>
@@ -56,7 +58,8 @@
                 var data_ = data,
                     str = "<ul>";
                 for (var i = 0; i < data_.length; i++) {
-                    str += "<li><a target='_blank' href="+data_[i].html_url+">"+(i+1)+"、"+data_[i].title+"</a>"+marked(data_[i].body)+"</li>";
+                    // str += "<li><a target='_blank' href="+data_[i].html_url+">"+(i+1)+"、"+data_[i].title+"</a>"+marked(data_[i].body)+"</li>";
+                    str += "<li>"+(i+1)+"、<a target='_blank' href="+data_[i].html_url+">"+data_[i].title+"</a>&nbsp;&nbsp;&nbsp;("+new Date(data_[i].created_at).toLocaleDateString()+")</li>";
                 }
                 str += "</ul>";
                 $('#par1').html(str);
@@ -69,7 +72,8 @@
                  var data_ = data,
                      str = "<ul>";
                  for (var i = 0; i < data_.length; i++) {
-                     str += "<li><a target='_blank' href="+data_[i].html_url+">"+(i+1)+"、"+data_[i].title+"</a>"+marked(data_[i].body)+"</li>";
+                    //  str += "<li><a target='_blank' href="+data_[i].html_url+">"+(i+1)+"、"+data_[i].title+"</a>"+marked(data_[i].body)+"</li>";
+                     str += "<li>"+(i+1)+"、<a target='_blank' href="+data_[i].html_url+">"+data_[i].title+"</a>&nbsp;&nbsp;&nbsp;("+new Date(data_[i].created_at).toLocaleDateString()+")</li>";
                  }
                  str += "</ul>";
                  $('#par2').html(str);
@@ -82,7 +86,8 @@
                  var data_ = data,
                      str = "<ul>";
                  for (var i = 0; i < data_.length; i++) {
-                     str += "<li><a target='_blank' href="+data_[i].html_url+">"+(i+1)+"、"+data_[i].title+"</a>"+marked(data_[i].body)+"</li>";
+                    //  str += "<li><a target='_blank' href="+data_[i].html_url+">"+(i+1)+"、"+data_[i].title+"</a>"+marked(data_[i].body)+"</li>";
+                     str += "<li>"+(i+1)+"、<a target='_blank' href="+data_[i].html_url+">"+data_[i].title+"</a>&nbsp;&nbsp;&nbsp;("+new Date(data_[i].created_at).toLocaleDateString()+")</li>";
                  }
                  str += "</ul>";
                  $('#par3').html(str);
@@ -95,7 +100,8 @@
                  var data_ = data,
                      str = "<ul>";
                  for (var i = 0; i < data_.length; i++) {
-                     str += "<li><a target='_blank' href="+data_[i].html_url+">"+(i+1)+"、"+data_[i].title+"</a>"+marked(data_[i].body)+"</li>";
+                    //  str += "<li><a target='_blank' href="+data_[i].html_url+">"+(i+1)+"、"+data_[i].title+"</a>"+marked(data_[i].body)+"</li>";
+                     str += "<li>"+(i+1)+"、<a target='_blank' href="+data_[i].html_url+">"+data_[i].title+"</a>&nbsp;&nbsp;&nbsp;("+new Date(data_[i].created_at).toLocaleDateString()+")</li>";
                  }
                  str += "</ul>";
                  $('#par4').html(str);
